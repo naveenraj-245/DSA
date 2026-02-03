@@ -1,0 +1,14 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> hash= new HashMap<>();
+        int res=0;int major=0;
+        for(int n:nums){
+            hash.put(n,1+hash.getOrDefault(n,0));
+            if(hash.get(n)>major){
+                res=n;
+                major=hash.get(n);
+            }
+        }
+        return res;
+    }
+}
